@@ -34,7 +34,6 @@ const opMap = {
     '-' : sub,
     '*' : mul,
     '/' : div,
-    '=' : operate,
 }
 opButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
@@ -65,7 +64,7 @@ opButtons.addEventListener('click', (e) => {
 });
 
 const clearBtn = document.querySelector('.clear');
-clearBtn.addEventListener('click', (e) => {
+clearBtn.addEventListener('click', () => {
     screen.value = '';
     operator = arg1 = arg2 = null;
 });
