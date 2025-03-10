@@ -10,8 +10,13 @@ function operate(operator, x, y) { return operator(x, y) }
 const screen = document.querySelector('.screen');
 
 const numButtons = document.querySelector('.numbers');
+let clearFlag = false;
 numButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
+        if (clearFlag) {
+            screen.value = '';
+            clearFlag = false;
+        }
         screen.value += e.target.textContent;
     }
 });
@@ -42,7 +47,7 @@ opButtons.addEventListener('click', (e) => {
             arg1 = result;
         } else {
             operator = opMap[opSymb];
-            screen.value = '';
+            clearFlag = true;
         }
     }
 });
