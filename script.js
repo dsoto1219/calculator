@@ -15,3 +15,8 @@ numButtons.addEventListener('click', (e) => {
         screen.value += e.target.textContent;
     }
 });
+
+const clearBtn = document.querySelector('.clear');
+clearBtn.addEventListener('click', (e) => {
+    screen.value = '';
+});

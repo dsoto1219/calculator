@@ -54,6 +54,18 @@ button:active {
     justify-content: space-between;
 }
 
+.left {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.clear {
+    margin-left: 8px;
+    align-self: flex-start;
+}
+
 .numbers {
     display: flex;
     flex-flow: row wrap;
