@@ -17,6 +17,12 @@ numButtons.addEventListener('click', (e) => {
             screen.value = '';
             clearFlag = false;
         }
+        // If an operation just happened and we 
+        // register a number, clear everything
+        if (operator == operate) {
+            screen.value = '';
+            operator = arg1 = arg2 = null;
+        }
         screen.value += e.target.textContent;
     }
 });
@@ -43,7 +49,13 @@ opButtons.addEventListener('click', (e) => {
         if (opSymb == '=') {
             let result = operate(operator, arg1, arg2);
             screen.value = result;
-            // Prepare for next inputs
+            operator = operate; // Flag that an operation just happened
+            /*  
+              We set arg1 to the result so that 
+              if another operation key is pressed,
+              that operation can use the result we 
+              just calculated
+            */
             arg1 = result;
         } else {
             operator = opMap[opSymb];
