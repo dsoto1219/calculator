@@ -55,5 +55,5 @@ opButtons.addEventListener('click', (e) => {
 const clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener('click', (e) => {
     screen.value = '';
-    operator, arg1, arg2 = null;
+    operator = arg1 = arg2 = null;
 });
