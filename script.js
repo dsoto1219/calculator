@@ -23,6 +23,12 @@ numButtons.addEventListener('click', (e) => {
             screen.value = '';
             operator = arg1 = arg2 = null;
         }
+
+        let writeVal = e.target.value;
+        // Don't allow multiple decimals
+        if (writeVal == '.' && screen.value.includes('.')) {
+            return;
+        }
         screen.value += e.target.textContent;
     }
 });
@@ -37,7 +43,7 @@ const opMap = {
 }
 opButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        let parsedScreenValue = parseInt(screen.value);
+        let parsedScreenValue = parseFloat(screen.value);
         if (arg1 === null) {
             arg1 = parsedScreenValue;
         } else {
