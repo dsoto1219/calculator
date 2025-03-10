@@ -29,6 +29,17 @@ numButtons.addEventListener('click', (e) => {
         if (writeVal == '.' && screen.value.includes('.')) {
             return;
         }
+        if (writeVal == '-') {
+            if (screen.value == '') {
+                return;
+            }
+            if (screen.value[0] == '-') {
+                screen.value = screen.value.slice(1);
+                return;
+            }
+            screen.value = '-' + screen.value;
+            return;
+        }
         screen.value += e.target.textContent;
     }
 });
