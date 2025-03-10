@@ -79,3 +79,10 @@ button:active {
     align-items: center;
     gap: 8px;
 }
+
+.parsed-display {
+    margin: 0;
+    padding: 0;
+    align-self: flex-end;
+    opacity: 0.5;
+}

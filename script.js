@@ -52,6 +52,7 @@ const opMap = {
     '*' : mul,
     '/' : div,
 }
+const parsedDisplay = document.querySelector('.parsed-display');
 opButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         let parsedScreenValue = parseFloat(screen.value);
@@ -65,6 +66,7 @@ opButtons.addEventListener('click', (e) => {
         if (opSymb == '=') {
             let result = operate(operator, arg1, arg2);
             screen.value = result;
+            parsedDisplay.textContent += `${arg2})`;
             operator = operate; // Flag that an operation just happened
             /*  
               We set arg1 to the result so that 
@@ -75,6 +77,7 @@ opButtons.addEventListener('click', (e) => {
             arg1 = result;
         } else {
             operator = opMap[opSymb];
+            parsedDisplay.textContent = `(${arg1} ${opSymb} `;
             clearFlag = true;
         }
     }
@@ -83,5 +86,6 @@ opButtons.addEventListener('click', (e) => {
 const clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener('click', () => {
     screen.value = '';
+    parsedDisplay.textContent = '';
     operator = arg1 = arg2 = null;
 });
